@@ -36,12 +36,23 @@
 
 		/* STEP 8: Add an event handler that listens for the onload event of the JSON file/object */
 		request.onload = function() {
-			//Create a variable and assign the response to it
+			//Create a variable and assign the response to it so basically assign a var to the json file 
 			var iScreamInc = request.response;
 			console.log(iScreamInc); //This should print the JSON file to the console.
+			populateHeader(iScreamInc);
 		}
 
 		/* STEP 9: Build out the populateHeader() function */
+		function populateHeader(jsonObject){
+			//create a h1 tag
+			var headerH1 = document.createElement('h1');
+			
+			//set the text content to the company name
+			headerH1.textContent = jsonObject['companyName']; //jsonObject.companyName also works
+
+			//append this h1 element to the header section
+			header.appendChild(headerH1);
+		}
 
 		/* STEP 10a: Assemble the showTopFlavors() function */
 
